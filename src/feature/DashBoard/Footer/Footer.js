@@ -1,84 +1,120 @@
 /** @format */
 
-import React from 'react';
-import './footer.css';
+import React from "react";
+import "./footer.css";
 
 function Footer(props) {
   return (
     <div>
-      {' '}
-      <div className='container-fluid'>
-        <div className='row'>
-          <div
-            id='carouselExampleIndicators'
-            className='carousel slide'
-            data-ride='carousel'
-          >
-            <ol className='carousel-indicators'>
-              <li
-                data-target='#carouselExampleIndicators'
-                data-slide-to='0'
-                className='active'
-              ></li>
-              <li
-                data-target='#carouselExampleIndicators'
-                data-slide-to='1'
-              ></li>
-              <li
-                data-target='#carouselExampleIndicators'
-                data-slide-to='2'
-              ></li>
-            </ol>
-            <div className='carousel-inner'>
-              <div className='carousel-item active'>
-                <img
-                  className='d-block w-100'
-                  src='https://scontent.fhph1-2.fna.fbcdn.net/v/t1.15752-9/s2048x2048/129914866_2753006601635176_8264044795716006807_n.png?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=0kgRJB2HYucAX8X3YuX&_nc_ht=scontent.fhph1-2.fna&_nc_tp=30&oh=ee3a2feee04b79829a0def7a943b1bbb&oe=5FF2A6DE'
-                  alt='First slide'
-                />
-              </div>
-              <div className='carousel-item'>
-                <img
-                  className='d-block w-100'
-                  src='https://scontent.fhph1-2.fna.fbcdn.net/v/t1.15752-9/s2048x2048/129914866_2753006601635176_8264044795716006807_n.png?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=0kgRJB2HYucAX8X3YuX&_nc_ht=scontent.fhph1-2.fna&_nc_tp=30&oh=ee3a2feee04b79829a0def7a943b1bbb&oe=5FF2A6DE'
-                  alt='Second slide'
-                />
-              </div>
-              <div className='carousel-item'>
-                <img
-                  className='d-block w-100'
-                  src='https://scontent.fhph1-2.fna.fbcdn.net/v/t1.15752-9/s2048x2048/129914866_2753006601635176_8264044795716006807_n.png?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=0kgRJB2HYucAX8X3YuX&_nc_ht=scontent.fhph1-2.fna&_nc_tp=30&oh=ee3a2feee04b79829a0def7a943b1bbb&oe=5FF2A6DE'
-                  alt='Third slide'
-                />
+      <footer className="bg-dark" style={{color: 'white'}}>
+        <div className="container-fluid text-center text-md-left">
+          <div className="row">
+            <div className="col-md-4">
+              <h5 className="mt-3">
+                <span style={{color: '#fe4e00'}}> Softt</span>
+                <span> education</span>
+              </h5>
+              <div>
+                <p className="c-gray">
+                  Các khoá học được đầu tư kỹ lưỡng từ nội dung tới chất lượng
+                  hình ảnh và âm thanh. Học viên có thể học từ con số 0 tới khi
+                  trở thành lập trình viên chuyên nghiệp tại đây.
+                </p>
               </div>
             </div>
-            <a
-              className='carousel-control-prev'
-              href='#carouselExampleIndicators'
-              role='button'
-              data-slide='prev'
-            >
-              <span
-                className='carousel-control-prev-icon'
-                aria-hidden='true'
-              ></span>
-              <span className='sr-only'>Previous</span>
-            </a>
-            <a
-              className='carousel-control-next'
-              href='#carouselExampleIndicators'
-              role='button'
-              data-slide='next'
-            >
-              <span
-                className='carousel-control-next-icon'
-                aria-hidden='true'
-              ></span>
-              <span className='sr-only'>Next</span>
-            </a>
+
+            <hr className="clearfix w-100 d-md-none" />
+
+            <div className="col-md-2">
+              <h5 className="font-weight-bold text-uppercase mt-3 c-gray">
+                Thông tin
+              </h5>
+
+              <ul className="list-unstyled">
+                <li>
+                  <a href="" className="c-gray">
+                    Giới thiệu
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="c-gray">
+                    Liên hệ
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <hr className="clearfix w-100 d-md-none" />
+
+            <div className="col-md-2 mx-auto">
+              <h5 className="font-weight-bold text-uppercase mt-3 c-gray">
+                Hỗ trợ
+              </h5>
+
+              <ul className="list-unstyled">
+                <li>
+                  <a href="" className="c-gray">
+                    Hỗ trợ
+                  </a>
+                </li>
+                <li>
+                  <a href="" className="c-gray">
+                    Đóng góp
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <hr className="clearfix w-100 d-md-none" />
+
+            <div className="col-md-4 mx-auto">
+              <h5 className="font-weight-bold text-uppercase mt-3 c-gray">
+                Theo dõi chúng tôi
+              </h5>
+
+              <ul className="list-unstyled">
+                <li>
+                  <ul
+                    className="list-unstyled list-inline"
+                    
+                  >
+                    <li className="list-inline-item">
+                      <a className="btn-floating btn-fb mx-1">
+                        <i className="fab fa-facebook-f"> </i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a className="btn-floating btn-tw mx-1 b-youtube">
+                        <i className="fab fa-youtube"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a className="btn-floating btn-gplus mx-1 b-google">
+                        <i className="fab fa-google-plus-g"> </i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a className="btn-floating btn-li mx-1 b-instagram">
+                        <i className="fab fa-instagram"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+
+        <div
+          className="footer-copyright text-center"
+          style={{paddingBottom:' 1rem !important'}}
+        >
+          <span className="c-gray">© 2020 Copyright:</span>
+
+          <span style={{color: '#fe4e00', fontWeight: '600'}}> Softt</span>
+          <span> education</span>
+        </div>
+      </footer>
     </div>
   );
 }

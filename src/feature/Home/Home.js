@@ -11,7 +11,7 @@ function Home(props) {
       <div
         style={{
           marginBottom: '40px',
-          height: '1000px',
+          height: '1350px',
           backgroundSize: 'cover',
           backgroundImage:
             "url('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.15752-9/s2048x2048/129914866_2753006601635176_8264044795716006807_n.png?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=0kgRJB2HYucAX8X3YuX&_nc_ht=scontent.fhph1-2.fna&_nc_tp=30&oh=ee3a2feee04b79829a0def7a943b1bbb&oe=5FF2A6DE')",
