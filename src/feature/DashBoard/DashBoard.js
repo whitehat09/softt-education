@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Courses from '../Cousers';
 import Home from '../Home';
+import Footer from './Footer';
 import Menu from './Menu';
 function DashBoard(props) {
   return (
@@ -16,6 +17,7 @@ function DashBoard(props) {
           <Courses />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 }

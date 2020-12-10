@@ -1,3 +1,5 @@
+/** @format */
+
 import React from 'react';
 
 function Home(props) {
@@ -6,8 +8,16 @@ function Home(props) {
 
   return (
     <div>
-      <div style={{ marginBottom: '40px' }}>
-        <img src='https://fullstack.edu.vn/assets/images/home-img.jpg' alt='' />
+      <div
+        style={{
+          marginBottom: '40px',
+          height: '1000px',
+          backgroundSize: 'cover',
+          backgroundImage:
+            "url('https://scontent.fhph1-2.fna.fbcdn.net/v/t1.15752-9/s2048x2048/129914866_2753006601635176_8264044795716006807_n.png?_nc_cat=101&ccb=2&_nc_sid=ae9488&_nc_ohc=0kgRJB2HYucAX8X3YuX&_nc_ht=scontent.fhph1-2.fna&_nc_tp=30&oh=ee3a2feee04b79829a0def7a943b1bbb&oe=5FF2A6DE')",
+        }}
+      >
+        {/* <img src='https://fullstack.edu.vn/assets/images/home-img.jpg' alt='' /> */}
       </div>
       <div className='intro row' style={{ marginBottom: '40px' }}>
         <div
@@ -138,7 +148,10 @@ function Home(props) {
           </div>
         </div>
 
-        <div className='paginate' style={{display:'flex', justifyContent: 'flex-end'}}>
+        <div
+          className='paginate'
+          style={{ display: 'flex', justifyContent: 'flex-end' }}
+        >
           <nav aria-label='Page navigation example'>
             <ul class='pagination'>
               <li class='page-item'>
