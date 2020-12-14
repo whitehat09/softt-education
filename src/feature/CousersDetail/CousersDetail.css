@@ -40,3 +40,8 @@ margin: 10px 0px 10px 0px;
     text-decoration: none;
     width: 100%;
 }
+.btn-courses-detail{
+    padding: 6px 32px 6px 32px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}

@@ -44,7 +44,17 @@ const Login = (props) => {
               </div>
 
               <div className="text-center p-t-136">
-                <a className="txt2" href="#">
+                <a className="txt2" href="">
+                  Create your Account
+                  <i
+                    className="fa fa-long-arrow-right m-l-5"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
+
+              <div className="text-center p-t-136">
+                <a className="txt2" href="">
                   Create your Account
                   <i
                     className="fa fa-long-arrow-right m-l-5"

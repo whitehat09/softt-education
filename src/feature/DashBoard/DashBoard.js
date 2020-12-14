@@ -6,6 +6,7 @@ import Login from "../Login";
 import Footer from "./Footer";
 import Menu from "./Menu";
 import Register from "../Register";
+import CoursesDetail from "../CoursesDetail";
 
 function DashBoard(props) {
   return (
@@ -24,6 +25,12 @@ function DashBoard(props) {
         </Route>
         <Route path="/courses">
           <Courses />
+        </Route>
+        <Route path="/courses/detail">
+          <CoursesDetail />
+        </Route>
+        <Route path="/detail">
+          <CoursesDetail />
         </Route>
       </Switch>
 

@@ -9,7 +9,7 @@ import {
   NavLink,
 } from 'react-router-dom';
 function Menu(props) {
-  const user = {name: 'Thawng'};
+  const user = {name: 'Thắng'};
   return (
     <div>
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
