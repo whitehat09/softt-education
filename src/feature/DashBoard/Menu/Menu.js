@@ -1,15 +1,30 @@
 /** @format */
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { loginState } from '../../../recoil/appState';
+
 function Menu(props) {
+<<<<<<< HEAD
   const user = {name: 'Thắng'};
+=======
+  // const user = JSON.parse(
+  //   sessionStorage.getItem('user') || localStorage.getItem('user')
+  // );
+  const user = JSON.parse(
+    sessionStorage.getItem('user') || localStorage.getItem('user') || '{}'
+  );
+  const [login, setLogin] = useRecoilState(loginState);
+
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user');
+    sessionStorage.removeItem('accessToken');
+    sessionStorage.removeItem('user');
+    setLogin(false);
+  };
+>>>>>>> dd5d4aa061e7de930e2f283327071ac6c37b466f
   return (
     <div>
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>
@@ -41,7 +56,10 @@ function Menu(props) {
                   Khoá học
                 </NavLink>
               </li>
-              <li className='nav-item dropdown'>
+              <li
+                className='nav-item dropdown'
+                style={{ display: login && user ? 'block' : 'none' }}
+              >
                 <span
                   className='nav-link dropdown-toggle'
                   to='#'
@@ -52,7 +70,7 @@ function Menu(props) {
                   aria-expanded='false'
                 >
                   <img
-                    src='https://scontent.fhph1-2.fna.fbcdn.net/v/t1.0-9/125817490_2795678467379547_6413108716132894655_n.jpg?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_ohc=egnk6t7HZ0cAX-KRjHR&_nc_ht=scontent.fhph1-2.fna&oh=c84b0c8b0d3d54b245768ca0e5c7466d&oe=5FF391F4'
+                    src={user.avatar}
                     alt=''
                     style={{
                       width: '28px',
@@ -69,7 +87,7 @@ function Menu(props) {
                     Khoá học của tôi
                   </NavLink>
                   <div className='dropdown-divider'></div>
-                  <span className='dropdown-item'>
+                  <span className='dropdown-item' onClick={logout}>
                     Đăng xuất
                   </span>
                 </div>
@@ -89,6 +107,13 @@ function Menu(props) {
                 Search
               </button>
             </form>
+            <Link
+              style={{ display: login ? 'none' : 'block' }}
+              className='btn btn-outline-success my-2 my-sm-0'
+              to='/login'
+            >
+              Đăng nhập
+            </Link>
           </div>
         </div>
       </nav>
