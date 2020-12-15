@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const accessToken = () => {
-  return (
-    sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken')
-  );
+  return sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken') || '';
 };
 
 export default {

@@ -1,12 +1,22 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRecoilState } from 'recoil';
 import DashBoard from './feature/DashBoard';
 import Login from './feature/Login';
 import Register from './feature/Register';
-import { useRecoilState } from 'recoil';
 import { loginState } from './recoil/appState';
 function App() {
   const [login, setLogin] = useRecoilState(loginState);
-  console.log('afdasdf', login)
+  useEffect(() => {
+    const accessToken = sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken');
+    if (accessToken) {
+      setLogin(true);
+    } else {
+      setLogin(false);
+    }
+  }, [login]);
   return (
     <Router>
       <div className='App'>
@@ -24,6 +34,18 @@ function App() {
             <Register />
           </Route>
         </Switch>
+
+        <ToastContainer
+          position='bottom-right'
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </Router>
   );

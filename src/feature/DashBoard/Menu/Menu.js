@@ -8,6 +8,7 @@ function Menu(props) {
   //   sessionStorage.getItem('user') || localStorage.getItem('user')
   // );
   const user = JSON.parse(sessionStorage.getItem('user') || localStorage.getItem('user') || '{}');
+  console.log(user)
   const [login, setLogin] = useRecoilState(loginState);
 
   const logout = () => {

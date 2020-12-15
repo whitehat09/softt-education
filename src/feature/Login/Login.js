@@ -1,28 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './login.css';
+import { toast } from 'react-toastify';
 import { useRecoilState } from 'recoil';
 import { loginState } from '../../recoil/appState';
+import RestfulUtils from '../../utils/RestfulUtils';
+import './login.css';
 const Login = (props) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [dataGroup, setDataGroup] = useState({ username: '', password: '', strategy: 'local' });
+  const [remember, setRemember] = useState(false);
   const [login, setLogin] = useRecoilState(loginState);
   let history = useHistory();
   const onChange = (type, e) => {
-    type(e.target.value);
-    console.log(username);
-    console.log(password);
+    const newDataGroup = { ...dataGroup };
+
+    newDataGroup[type] = e.target.value;
+
+    setDataGroup(newDataGroup);
+  };
+
+  const onChangeRemember = (e) => {
+    setRemember(e.target.value);
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('accessToken', username);
-      sessionStorage.setItem('accessToken', username);
-      localStorage.setItem('user', JSON.stringify({ name: username }));
-      sessionStorage.setItem('user', JSON.stringify({ name: username }));
-      setLogin(true);
-      history.push('/');
-    }
+
+    RestfulUtils.post('http://localhost:3030/authentication', dataGroup)
+      .then((res) => {
+        if (!res.errors && res.status === 201) {
+          toast.success('Đăng nhập thành công');
+          sessionStorage.setItem('accessToken', res.data.accessToken);
+          sessionStorage.setItem('user', JSON.stringify(res.data.user));
+          if (remember) {
+            localStorage.setItem('accessToken', res.data.accessToken);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+          }
+          history.push('/');
+          setLogin(true);
+        } else {
+          toast.error('Tài khoản hoặc mật khẩu không đúng');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -53,7 +73,14 @@ const Login = (props) => {
                 <hr style={{ backGroundColor: 'white', height: '1px' }} />
               </div>
               <div className='wrap-input100 validate-input' data-validate='Valid email is required: ex@abc.xyz'>
-                <input className='input100' type='text' name='username' placeholder='Tài khoản' value={username} onChange={(e) => onChange(setUsername, e)} />
+                <input
+                  className='input100'
+                  type='text'
+                  name='username'
+                  placeholder='Tài khoản'
+                  value={dataGroup.username}
+                  onChange={(e) => onChange('username', e)}
+                />
                 <span className='focus-input100' />
                 <span className='symbol-input100'>
                   <i className='fa fa-envelope' aria-hidden='true' />
@@ -65,13 +92,17 @@ const Login = (props) => {
                   type='password'
                   name='password'
                   placeholder='Mật khẩu'
-                  value={password}
-                  onChange={(e) => onChange(setPassword, e)}
+                  value={dataGroup.password}
+                  onChange={(e) => onChange('password', e)}
                 />
                 <span className='focus-input100' />
                 <span className='symbol-input100'>
                   <i className='fa fa-lock' aria-hidden='true' />
                 </span>
+              </div>
+              <div className='container-login100-form-btn'>
+                <input type='checkbox' id='vehicle1' name='vehicle1' value={remember} onChange={onChangeRemember}></input>
+                <label for='vehicle1'>Nhớ đăng nhập</label>
               </div>
               <div className='container-login100-form-btn'>
                 <button className='login100-form-btn'>Đăng nhập</button>
