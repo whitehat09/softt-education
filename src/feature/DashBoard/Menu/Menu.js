@@ -6,6 +6,9 @@ import { useRecoilState } from 'recoil';
 import { loginState } from '../../../recoil/appState';
 
 function Menu(props) {
+<<<<<<< HEAD
+  const user = {name: 'Thắng'};
+=======
   // const user = JSON.parse(
   //   sessionStorage.getItem('user') || localStorage.getItem('user')
   // );
@@ -21,6 +24,7 @@ function Menu(props) {
     sessionStorage.removeItem('user');
     setLogin(false);
   };
+>>>>>>> dd5d4aa061e7de930e2f283327071ac6c37b466f
   return (
     <div>
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark fixed-top'>

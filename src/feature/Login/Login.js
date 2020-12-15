@@ -90,9 +90,25 @@ const Login = (props) => {
                 <button className='login100-form-btn'>Đăng nhập</button>
               </div>
 
+<<<<<<< HEAD
+              <div className="text-center p-t-136">
+                <a className="txt2" href="">
+                  Create your Account
+                  <i
+                    className="fa fa-long-arrow-right m-l-5"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
+
+              <div className="text-center p-t-136">
+                <a className="txt2" href="">
+                  Create your Account
+=======
               <div className='text-center p-t-136'>
                 <Link className='txt2' to='/register'>
                   Chưa có tài khoản? Đăng ký
+>>>>>>> dd5d4aa061e7de930e2f283327071ac6c37b466f
                   <i
                     className='fa fa-long-arrow-right m-l-5'
                     aria-hidden='true'

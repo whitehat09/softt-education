@@ -6,7 +6,7 @@ import "./footer.css";
 function Footer(props) {
   return (
     <div>
-      <footer className="bg-dark" style={{color: 'white'}}>
+      <footer className="bg-dark" style={{color: 'white',paddingBottom:"20px",}}>
         <div className="container-fluid text-center text-md-left">
           <div className="row">
             <div className="col-md-4">
