@@ -40,7 +40,18 @@ const Login = (props) => {
         <div className='wrap-login100' style={{ justifyContent: 'center' }}>
           <div>
             <form className='login100-form validate-form' onSubmit={onSubmit}>
-              <span className='login100-form-title'>Đăng nhập</span>
+            <div className="title-login-edu">
+                <Link className="txt2 logo-login-edu" to="/">
+                  <p className="">
+                    <span  style={{color: 'rgb(254, 78, 0)',}}>Softt</span> education
+                  </p>
+                </Link>
+                <p style={{textAlign:'center'}} > 
+                  Softt education là cộng đồng học  thực tế . Đăng nhập để cùng nhau học tập, đóng góp và chia sẻ kiến thức ❤️
+                </p>
+                <span className="login100-form-title">Thành viên đăng nhập</span>
+                <hr style={{backGroundColor:'white',height:'1px'}} />
+              </div>
               <div
                 className='wrap-input100 validate-input'
                 data-validate='Valid email is required: ex@abc.xyz'

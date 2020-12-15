@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Courses from '../Cousers';
 import Home from '../Home';
 import Login from '../Login';
+import Register from '../Register';
 import Footer from './Footer';
 import Menu from './Menu';
 
@@ -17,6 +18,12 @@ function DashBoard(props) {
         </Route>
         <Route exact path='/courses'>
           <Courses />
+        </Route>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+        <Route exact path='/register'>
+          <Register />
         </Route>
       </Switch>
 
