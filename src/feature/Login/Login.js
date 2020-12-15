@@ -40,39 +40,26 @@ const Login = (props) => {
         <div className='wrap-login100' style={{ justifyContent: 'center' }}>
           <div>
             <form className='login100-form validate-form' onSubmit={onSubmit}>
-            <div className="title-login-edu">
-                <Link className="txt2 logo-login-edu" to="/">
-                  <p className="">
-                    <span  style={{color: 'rgb(254, 78, 0)',}}>Softt</span> education
+              <div className='title-login-edu'>
+                <Link className='txt2 logo-login-edu' to='/'>
+                  <p className=''>
+                    <span style={{ color: 'rgb(254, 78, 0)' }}>Softt</span> education
                   </p>
                 </Link>
-                <p style={{textAlign:'center'}} > 
-                  Softt education là cộng đồng học  thực tế . Đăng nhập để cùng nhau học tập, đóng góp và chia sẻ kiến thức ❤️
+                <p style={{ textAlign: 'center' }}>
+                  Softt education là cộng đồng học thực tế . Đăng nhập để cùng nhau học tập, đóng góp và chia sẻ kiến thức ❤️
                 </p>
-                <span className="login100-form-title">Thành viên đăng nhập</span>
-                <hr style={{backGroundColor:'white',height:'1px'}} />
+                <span className='login100-form-title'>Thành viên đăng nhập</span>
+                <hr style={{ backGroundColor: 'white', height: '1px' }} />
               </div>
-              <div
-                className='wrap-input100 validate-input'
-                data-validate='Valid email is required: ex@abc.xyz'
-              >
-                <input
-                  className='input100'
-                  type='text'
-                  name='username'
-                  placeholder='Tài khoản'
-                  value={username}
-                  onChange={(e) => onChange(setUsername, e)}
-                />
+              <div className='wrap-input100 validate-input' data-validate='Valid email is required: ex@abc.xyz'>
+                <input className='input100' type='text' name='username' placeholder='Tài khoản' value={username} onChange={(e) => onChange(setUsername, e)} />
                 <span className='focus-input100' />
                 <span className='symbol-input100'>
                   <i className='fa fa-envelope' aria-hidden='true' />
                 </span>
               </div>
-              <div
-                className='wrap-input100 validate-input'
-                data-validate='Password is required'
-              >
+              <div className='wrap-input100 validate-input' data-validate='Password is required'>
                 <input
                   className='input100'
                   type='password'
@@ -89,30 +76,10 @@ const Login = (props) => {
               <div className='container-login100-form-btn'>
                 <button className='login100-form-btn'>Đăng nhập</button>
               </div>
-
-<<<<<<< HEAD
-              <div className="text-center p-t-136">
-                <a className="txt2" href="">
-                  Create your Account
-                  <i
-                    className="fa fa-long-arrow-right m-l-5"
-                    aria-hidden="true"
-                  />
-                </a>
-              </div>
-
-              <div className="text-center p-t-136">
-                <a className="txt2" href="">
-                  Create your Account
-=======
               <div className='text-center p-t-136'>
                 <Link className='txt2' to='/register'>
                   Chưa có tài khoản? Đăng ký
->>>>>>> dd5d4aa061e7de930e2f283327071ac6c37b466f
-                  <i
-                    className='fa fa-long-arrow-right m-l-5'
-                    aria-hidden='true'
-                  />
+                  <i className='fa fa-long-arrow-right m-l-5' aria-hidden='true' />
                 </Link>
               </div>
             </form>
