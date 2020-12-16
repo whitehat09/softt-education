@@ -60,12 +60,18 @@ function Home(props) {
         <div className='cousers row' style={{ padding: '0' }}>
           {data.map((item) => {
             return (
+<<<<<<< HEAD
               <div className='col-md-4 col-12' style={{ padding: '20px',backgroundColor: '#545454' }}>
                 <div className='card ' style={{ padding: '0',backgroundColor: '#545454', border:'1px solid white',color: '#c8c3bd' }}>
+=======
+              <div className='col-md-3 col-12' style={{ padding: '20px' }}>
+                <div className='card ' style={{ padding: '0' }}>
+>>>>>>> de4cbc95d875ba4107f8cf0f331cf8bc596278a4
                   <img className='card-img-top' src={item.avatar} alt='Card image cap' />
                   <div className='card-body'>
                     <h5 className='card-title'>{item.title}</h5>
                     <p className='card-text'>{item.description}</p>
+<<<<<<< HEAD
                     
                     <p className='card-text'>Tổng bài học {item.lessons.length}</p>
                     <div>
@@ -81,6 +87,13 @@ function Home(props) {
 
                     
                               
+=======
+                    <p className='card-text'>Tổng học viên {item.users.length}</p>
+                    <p className='card-text'>Tổng bài học {item.lessons.length}</p>
+                    <button className='btn btn-primary' onClick={() => {history.push(`/courses/${item._id}`)}}>
+                      Đăng ký
+                    </button>
+>>>>>>> de4cbc95d875ba4107f8cf0f331cf8bc596278a4
                   </div>
                 </div>
               </div>

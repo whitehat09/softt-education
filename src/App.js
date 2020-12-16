@@ -30,9 +30,12 @@ function App() {
             <DashBoard />
           </Route>
           <Route path="/courses/:id">
+<<<<<<< HEAD
             <DashBoard />
           </Route>
           <Route path="/Lessons/">
+=======
+>>>>>>> de4cbc95d875ba4107f8cf0f331cf8bc596278a4
             <DashBoard />
           </Route>
           <Route path="/login">
