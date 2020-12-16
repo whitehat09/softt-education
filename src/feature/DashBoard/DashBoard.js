@@ -28,7 +28,7 @@ function DashBoard(props) {
           <Route exact path='/register'>
             <Register />
           </Route>
-          <Route path='/courses/detail'>
+          <Route path='/courses/:id'>
             <CoursesDetail />
           </Route>
         </Switch>

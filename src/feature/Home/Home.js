@@ -1,14 +1,14 @@
 /** @format */
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import RestfulUtils from '../../utils/RestfulUtils';
 function Home(props) {
   const users = 1000;
   const cousers = 20;
 
   const [data, setData] = useState([]);
-
+  let history = useHistory();
   useEffect(() => {
     RestfulUtils.get(`http://localhost:3030/courses?$limit=${10}&$skip=${0}`)
       .then((res) => {
@@ -57,11 +57,15 @@ function Home(props) {
             return (
               <div className='col-md-3 col-12' style={{ padding: '20px' }}>
                 <div className='card ' style={{ padding: '0' }}>
-                  <img className='card-img-top' src='https://img.youtube.com/vi/0SJE9dYdpps/sddefault.jpg' alt='Card image cap' />
+                  <img className='card-img-top' src={item.avatar} alt='Card image cap' />
                   <div className='card-body'>
-                    <h5 className='card-title'>{item.name}</h5>
+                    <h5 className='card-title'>{item.title}</h5>
                     <p className='card-text'>{item.description}</p>
-                    <button className='btn btn-primary'>Đăng ký</button>
+                    <p className='card-text'>Tổng học viên {item.users.length}</p>
+                    <p className='card-text'>Tổng bài học {item.lessons.length}</p>
+                    <button className='btn btn-primary' onClick={() => {history.push(`/courses/${item._id}`)}}>
+                      Đăng ký
+                    </button>
                   </div>
                 </div>
               </div>
