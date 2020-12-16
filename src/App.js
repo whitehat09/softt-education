@@ -29,7 +29,10 @@ function App() {
           <Route exact path="/courses">
             <DashBoard />
           </Route>
-          <Route path="/courses/detail">
+          <Route path="/courses/:id">
+            <DashBoard />
+          </Route>
+          <Route path="/Lessons/">
             <DashBoard />
           </Route>
           <Route path="/login">
