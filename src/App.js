@@ -1,16 +1,18 @@
-import { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRecoilState } from 'recoil';
-import DashBoard from './feature/DashBoard';
-import Login from './feature/Login';
-import Register from './feature/Register';
-import { loginState } from './recoil/appState';
+import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRecoilState } from "recoil";
+import DashBoard from "./feature/DashBoard";
+import Login from "./feature/Login";
+import Register from "./feature/Register";
+import { loginState } from "./recoil/appState";
 function App() {
   const [login, setLogin] = useRecoilState(loginState);
   useEffect(() => {
-    const accessToken = sessionStorage.getItem('accessToken') || localStorage.getItem('accessToken');
+    const accessToken =
+      sessionStorage.getItem("accessToken") ||
+      localStorage.getItem("accessToken");
     if (accessToken) {
       setLogin(true);
     } else {
@@ -19,24 +21,27 @@ function App() {
   }, [login]);
   return (
     <Router>
-      <div className='App'>
+      <div className="App">
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <DashBoard />
           </Route>
-          <Route exact path='/courses'>
+          <Route exact path="/courses">
             <DashBoard />
           </Route>
-          <Route path='/login'>
+          <Route path="/courses/detail">
+            <DashBoard />
+          </Route>
+          <Route path="/login">
             <Login />
           </Route>
-          <Route path='/register'>
+          <Route path="/register">
             <Register />
           </Route>
         </Switch>
 
         <ToastContainer
-          position='bottom-right'
+          position="bottom-right"
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}

@@ -11,28 +11,32 @@ import CoursesDetail from '../CousersDetail';
 function DashBoard(props) {
   return (
     <div>
+      <div style={{}} >
       <Menu />
 
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/courses'>
-          <Courses />
-        </Route>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route exact path='/courses'>
+            <Courses />
+          </Route>
 
-        <Route exact path='/login'>
-          <Login />
-        </Route>
-        <Route exact path='/register'>
-          <Register />
-        </Route>
-        <Route path='/courses/detail'>
-          <CoursesDetail />
-        </Route>
-      </Switch>
-
+          <Route exact path='/login'>
+            <Login />
+          </Route>
+          <Route exact path='/register'>
+            <Register />
+          </Route>
+          <Route path='/courses/detail'>
+            <CoursesDetail />
+          </Route>
+        </Switch>
+      </div>
+      <div>
       <Footer />
+      </div>
+      
     </div>
   );
 }
