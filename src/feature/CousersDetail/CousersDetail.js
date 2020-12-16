@@ -13,6 +13,8 @@ function CousersDetail(props) {
               <span> NodeJs </span>
             </div>
 
+          {/* component lỗi */}
+
             <div className='col-md-12 col-xs-12' style={{ paddingBottom: '20px' }}>
               <h2>Xây dựng web với NodeJS & ExpressJS</h2>
               <p>Xây dựng web trong thực tế với NodeJS & ExpressJS với cách chia sẻ chi tiết, tận tâm, dễ hiểu và chất giọng giàu sức sống của người chia sẻ</p>
@@ -63,49 +65,37 @@ function CousersDetail(props) {
                   </div>
                 </div>
               </div>
+              {/* 1 */}
 
               <div className='row'>
                 <div className='col-md-8 col-xs-12'>
                   <h3>Nội dung khoá học</h3>
                 </div>
                 <div className='col-md-4 col-xs-12'>
-                  <p style='padding-top: 5px'>
+                  <p style={{paddingTop: '5px'}}>
                     36 Bài học
                     <span> 12:07:52 </span>
                   </p>
                 </div>
               </div>
-
+            
+            {/* 2 */}
               <div className='row name-course-post'>
-                <a href='#'>
+                <a >
                   <div className='col-md-12 col-xs-12'>
                     <div>
                       <i className='fas fa-play-circle icon-play-post'></i>
                       <span> 1 . </span>
                       <span> Lời khuyên giúp học lập trình hiệu quả hơn</span>
 
-                      <span style='float: right; padding: 0px 20px 0px 20px'>06:27</span>
-                      <span style='float: right; padding: 0px 20px 0px 20px'>Học thử</span>
+                      <span style={{float: 'right', padding: '0px 20px 0px 20px'}}>06:27</span>
+                      <span style={{float: 'right', padding: '0px 20px 0px 20px'}}>Học thử</span>
                     </div>
                   </div>
                 </a>
               </div>
               <div className='row name-course-post'>
-                <a href='#'>
-                  <div className='col-md-12 col-xs-12'>
-                    <div>
-                      <i className='fas fa-play-circle icon-play-post'></i>
-                      <span> 1 . </span>
-                      <span> Lời khuyên giúp học lập trình hiệu quả hơn</span>
-
-                      <span style={{ float: 'right', padding: '0px 20px 0px 20px' }}>06:27</span>
-                      <span style={{ float: 'right', padding: '0px 20px 0px 20px' }}>Học thử</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div className='row name-course-post'>
-                <a href='#'>
+                <a >
                   <div className='col-md-12 col-xs-12'>
                     <div>
                       <i className='fas fa-play-circle icon-play-post'></i>
@@ -119,7 +109,7 @@ function CousersDetail(props) {
                 </a>
               </div>
               <div className='row name-course-post'>
-                <a href='#'>
+                <a >
                   <div className='col-md-12 col-xs-12'>
                     <div>
                       <i className='fas fa-play-circle icon-play-post'></i>
@@ -133,7 +123,21 @@ function CousersDetail(props) {
                 </a>
               </div>
               <div className='row name-course-post'>
-                <a href='#'>
+                <a >
+                  <div className='col-md-12 col-xs-12'>
+                    <div>
+                      <i className='fas fa-play-circle icon-play-post'></i>
+                      <span> 1 . </span>
+                      <span> Lời khuyên giúp học lập trình hiệu quả hơn</span>
+
+                      <span style={{ float: 'right', padding: '0px 20px 0px 20px' }}>06:27</span>
+                      <span style={{ float: 'right', padding: '0px 20px 0px 20px' }}>Học thử</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div className='row name-course-post'>
+                <a>
                   <div className='col-md-12 col-xs-12'>
                     <div>
                       <i className='fas fa-play-circle icon-play-post'></i>
@@ -147,6 +151,9 @@ function CousersDetail(props) {
                 </a>
               </div>
             </div>
+
+
+            {/* component mới */}
           </div>
           <div className='col-md-3 col-xs-12'>
             <div>
@@ -177,6 +184,7 @@ function CousersDetail(props) {
           </div>
         </div>
       </div>
+   
     </div>
   );
 }
