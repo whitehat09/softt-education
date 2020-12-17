@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { loginState } from '../../../recoil/appState';
 
+import './Menu.css';
+
 function Menu(props) {
   // const user = JSON.parse(
   //   sessionStorage.getItem('user') || localStorage.getItem('user')
@@ -72,25 +74,20 @@ function Menu(props) {
                   />
                   {user.name}
                 </span>
-                <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-                  <div className='dropdown-divider'></div>
+                <div className='dropdown-menu' aria-labelledby='navbarDropdown' style={{color:'#909090',}}>
                   <NavLink className='dropdown-item' to='/me/courses'>
                     Khoá học của tôi
                   </NavLink>
                   <div className='dropdown-divider'></div>
                   <span className='dropdown-item' onClick={logout}>
-                    Đăng xuất
+                  <i class="fas fa-sign-out-alt"> </i><span> Đăng xuất</span>
+                   
                   </span>
                 </div>
               </li>
             </ul>
-            <form className='form-inline my-2 my-lg-0'>
-              <input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search' />
-              <button className='btn btn-outline-success my-2 my-sm-0' type='submit'>
-                Search
-              </button>
-            </form>
-            <Link style={{ display: login ? 'none' : 'block' }} className='btn btn-outline-success my-2 my-sm-0' to='/login'>
+            
+            <Link style={{ display: login ? 'none' : 'block' }} className='btn btn-light my-2 my-sm-0 btn-login-home' to='/login'>
               Đăng nhập
             </Link>
           </div>

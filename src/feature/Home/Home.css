@@ -1,0 +1,20 @@
+.btn-detail-courses{
+    border-radius: 20px;
+   
+    padding: 6px 17px;
+    font-weight: 500;
+}
+
+.img-icon-i-course{
+    width: 76px;
+    padding-bottom: 20px;
+}
+.bg-home {
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    
+}

@@ -57,7 +57,7 @@ function CousersDetail(props) {
     }
   };
   return (
-    <div className='corses-detail'>
+    <div className='corses-detail' style={{ backgroundColor: '#545454' ,minHeight:'calc(100vh - 226px)'}}>
       <div className='container'>
         <div className='row' style={{ padding: '25px 0px 20px 0px' }}>
           <div className='col-md-9 col-xs-12'>

@@ -7,13 +7,13 @@ import Footer from './Footer';
 import Menu from './Menu';
 import Register from '../Register';
 import CoursesDetail from '../CousersDetail';
+import Lessons from '../Lessons';
 
 function DashBoard(props) {
   return (
     <div>
-      <div style={{}} >
+      <div style={{minHeight:'calc(100vh - 226px)'}} >
       <Menu />
-
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -31,8 +31,12 @@ function DashBoard(props) {
           <Route path='/courses/:id'>
             <CoursesDetail />
           </Route>
+          <Route path='/Lessons'>
+            <Lessons />
+          </Route>
         </Switch>
       </div>
+      
       <div>
       <Footer />
       </div>

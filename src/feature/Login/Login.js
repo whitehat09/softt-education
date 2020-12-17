@@ -100,9 +100,10 @@ const Login = (props) => {
                   <i className='fa fa-lock' aria-hidden='true' />
                 </span>
               </div>
+              
               <div className='container-login100-form-btn'>
                 <input type='checkbox' id='vehicle1' name='vehicle1' value={remember} onChange={onChangeRemember}></input>
-                <label for='vehicle1'>Nhớ đăng nhập</label>
+                <label for='vehicle1' style={{color:'#999999'}}>Nhớ đăng nhập</label>
               </div>
               <div className='container-login100-form-btn'>
                 <button className='login100-form-btn'>Đăng nhập</button>

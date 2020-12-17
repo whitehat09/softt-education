@@ -30,6 +30,12 @@ function App() {
             <DashBoard />
           </Route>
           <Route path="/courses/:id">
+
+            <DashBoard />
+          </Route>
+          <Route path="/Lessons/">
+
+
             <DashBoard />
           </Route>
           <Route path="/login">
