@@ -9,3 +9,12 @@
     width: 76px;
     padding-bottom: 20px;
 }
+.bg-home {
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    
+}
