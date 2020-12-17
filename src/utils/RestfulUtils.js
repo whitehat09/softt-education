@@ -17,7 +17,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -33,7 +33,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -50,7 +50,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
@@ -66,7 +66,7 @@ export default {
           resolve(res);
         })
         .catch((err) => {
-          resolve(err.response.data);
+          resolve(err.response);
         });
     });
   },
