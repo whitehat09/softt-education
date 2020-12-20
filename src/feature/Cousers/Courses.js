@@ -54,34 +54,33 @@ function Courses(props) {
         </div>
 
 
-        <div className='paginate pagination justify-content-center' >
-
-          <nav aria-label='Page navigation example'>
-            <ul class='pagination'>
-              <li class='page-item'>
-                <a class='page-link' href='#'>
+        <div className="paginate pagination justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul className="pagination">
+              <li className="page-item">
+                <Link className="page-link">
                   Previous
-                </a>
+                </Link>
               </li>
-              <li class='page-item'>
-                <a class='page-link' href='#'>
+              <li className="page-item">
+                <Link className="page-link" >
                   1
-                </a>
+                </Link>
               </li>
-              <li class='page-item'>
-                <a class='page-link' href='#'>
+              <li className="page-item">
+                <Link className="page-link" >
                   2
-                </a>
+                </Link>
               </li>
-              <li class='page-item'>
-                <a class='page-link' href='#'>
+              <li className="page-item">
+                <Link className="page-link" >
                   3
-                </a>
+                </Link>
               </li>
-              <li class='page-item'>
-                <a class='page-link' href='#'>
+              <li className="page-item">
+                <Link className="page-link" >
                   Next
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

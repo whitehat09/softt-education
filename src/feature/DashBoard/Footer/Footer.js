@@ -2,6 +2,7 @@
 
 import React from "react";
 import "./footer.css";
+import { Link, useHistory } from "react-router-dom";
 
 function Footer(props) {
   return (
@@ -32,12 +33,12 @@ function Footer(props) {
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="" className="c-gray">
+                  <a  className="c-gray">
                     Giới thiệu
                   </a>
                 </li>
                 <li>
-                  <a href="" className="c-gray">
+                  <a  className="c-gray">
                     Liên hệ
                   </a>
                 </li>
@@ -53,14 +54,14 @@ function Footer(props) {
 
               <ul className="list-unstyled">
                 <li>
-                  <a href="" className="c-gray">
+                  <Link className="c-gray">
                     Hỗ trợ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="" className="c-gray">
+                  <Link className="c-gray">
                     Đóng góp
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -71,32 +72,30 @@ function Footer(props) {
               <h5 className="font-weight-bold text-uppercase mt-3 c-gray">
                 Theo dõi chúng tôi
               </h5>
-
               <ul className="list-unstyled">
                 <li>
                   <ul
                     className="list-unstyled list-inline"
-                    
                   >
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-fb mx-1">
+                      <Link className="btn-floating btn-fb mx-1">
                         <i className="fab fa-facebook-f"> </i>
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-tw mx-1 b-youtube">
+                      <Link className="btn-floating btn-tw mx-1 b-youtube">
                         <i className="fab fa-youtube"></i>
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-gplus mx-1 b-google">
+                      <Link className="btn-floating btn-gplus mx-1 b-google">
                         <i className="fab fa-google-plus-g"> </i>
-                      </a>
+                      </Link>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-li mx-1 b-instagram">
+                      <Link className="btn-floating btn-li mx-1 b-instagram">
                         <i className="fab fa-instagram"></i>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>

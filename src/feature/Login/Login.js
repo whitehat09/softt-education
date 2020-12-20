@@ -55,7 +55,7 @@ const Login = (props) => {
     };
   }, []);
   return (
-    <div className='login'>
+    <div>
       <div className='container-login100'>
         <div className='wrap-login100' style={{ justifyContent: 'center' }}>
           <div>

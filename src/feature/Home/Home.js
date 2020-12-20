@@ -10,11 +10,12 @@ function Home(props) {
   const cousers = 20;
 
   const [data, setData] = useState([]);
+
   let history = useHistory();
   useEffect(() => {
     RestfulUtils.get(`http://localhost:3030/courses?$limit=${10}&$skip=${0}`)
       .then((res) => {
-        console.log(res);
+        
         if (!res.error && res.status === 200) {
           setData(res.data.data);
         }
@@ -155,31 +156,31 @@ function Home(props) {
         </div>
         <div className="paginate pagination justify-content-center">
           <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link" href="#">
+            <ul className="pagination">
+              <li className="page-item">
+                <Link className="page-link">
                   Previous
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" >
                   1
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" >
                   2
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" >
                   3
-                </a>
+                </Link>
               </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
+              <li className="page-item">
+                <Link className="page-link" >
                   Next
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
