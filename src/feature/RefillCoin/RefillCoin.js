@@ -3,10 +3,67 @@ import { useParams } from "react-router-dom";
 import RestfulUtils from "../../utils/RestfulUtils";
 import "./RefillCoin.css";
 import { useRecoilState } from "recoil";
-import { loginState } from "../../recoil/appState";
+
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
+import { loginState } from "../../recoil/appState";
 function RefillCoin(props) {
+  const [login, setLogin] = useRecoilState(loginState);
+
+  const history = useHistory();
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  const [money, setMoney] = useState("");
+  const [content, setContent] = useState("");
+  const [user, setUser] = useState({ _id: "" });
+
+  const onChangName = (e) => {
+    setName(e.target.value);
+  };
+  const onChangNumber = (e) => {
+    setNumber(e.target.value);
+  };
+  const onChangMoney = (e) => {
+    setMoney(e.target.value);
+  };
+  const onChangContent = (e) => {
+    setContent(e.target.value);
+  };
+  useEffect(() => {
+    const user = JSON.parse(
+      sessionStorage.getItem("user") || localStorage.getItem("user")
+    );
+    console.log("thông tin người dùng :", user);
+    if (user) {
+      setUser(user);
+    }
+  }, []);
+  const refillCoin = () => {
+    if (login) {
+      const data = {
+        userId: user._id,
+        bankAccount: name,
+        bankNameAdmin: number,
+        amount: money,
+        content: content,
+      };
+      console.log(data);
+      RestfulUtils.post("localhost:3030/refill-coins", data)
+        .then((res) => {
+          if (!res.errors && res.status === 200) {
+            toast.success(res.data.message);
+          } else {
+            toast.error(res.data.message);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      history.push("/login");
+    }
+  };
+
   return (
     <div
       className="refill-coin"
@@ -17,19 +74,22 @@ function RefillCoin(props) {
           <div className="card col-md-5 col-12 box1">
             <div className="card-content">
               <div className="card-header">
-                <div className="heading mb-3"> PAYMENT METHOD </div>
+                <div className="heading mb-3">Phương thức thanh toán</div>
                 <div className="sub-heading row text-center m-0">
                   <div className="col-6 col-md-6 sub-heading1">
-                    By Credit Card
+                    Bằng thẻ tín dụng
                   </div>
-                  <div className="col-6 col-md-6 sub-heading2">By PayPal</div>
+                  <div className="col-6 col-md-6 sub-heading2">
+                    Thanh toán bằng PayPal
+                  </div>
                 </div>
               </div>
               <div className="card-body">
                 <p>
                   <small>
-                    You choose the method of payment with a credit card. Enter
-                    your paymentdetails or select another payment method
+                    Bạn chọn phương thức thanh toán bằng thẻ tín dụng. Nhập chi
+                    tiết thanh toán của bạn hoặc chọn một phương thức thanh toán
+                    khác
                   </small>
                 </p>
                 <div className="credit d-block mt-5 mx-auto">
@@ -50,57 +110,83 @@ function RefillCoin(props) {
           <div className="card col-md-5 col-12 box2">
             <div className="card-content">
               <div className="card-header box2-head">
-                <div className="heading2"> PAYMENT DETAILS </div>
+                <div className="heading2"> Chi tiết thanh toán </div>
               </div>
               <div className="card-body col-10 offset-1">
                 <form>
                   <div className="form-group">
                     <label>
                       <small>
-                        <strong className="text-muted">CARD HOLDER</strong>
+                        <strong className="text-muted">Người giữ thẻ</strong>
                       </small>
                     </label>
                     <input
+                      onChange={onChangName}
+                      type="text"
+                      value={name}
                       className="form-control"
-                      placeholder="Devin Caldwell"
+                      placeholder="Nguyễn Văn A"
                     />
                   </div>
                   <div className="form-group">
                     <label>
                       <small>
-                        <strong className="text-muted">CARD NUMBER</strong>
+                        <strong className="text-muted">Số thẻ</strong>
                       </small>
                     </label>
                     <div className="d-flex card-number">
                       <input
+                        onChange={onChangNumber}
                         className="form-control"
-                        placeholder="1234-4567-4543-1685"
+                        type="number"
+                        placeholder="6666-8888-9999-6789"
                       />
                       <i className="fas fa-credit-card text-muted fa-2x"></i>
                     </div>
                   </div>
-                  <div className="line3">
-                    <div className="txt d-flex">
-                      <p>
-                        <small className="text-muted">EXPERATION DATE</small>
-                      </p>
-                      <p>
-                        <small className="text-muted">CVV</small>
-                      </p>
+                  <div className="form-group">
+                    <label>
+                      <small>
+                        <strong className="text-muted">
+                          Số tiền thanh toán
+                        </strong>
+                      </small>
+                    </label>
+                    <div className="d-flex card-number">
+                      <input
+                        onChange={onChangMoney}
+                        type="number"
+                        className="form-control"
+                        placeholder="100 000 vnđ "
+                      />
+                      <i className="fas fa-credit-card text-muted fa-2x"></i>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <div className="input-group">
+                      <div className="input-group-prepend">
+                        <span className="input-group-text">
+                          Nội dung thanh toán
+                        </span>
+                      </div>
+                      <textarea
+                        onChange={onChangContent}
+                        type="text"
+                        className="form-control"
+                        aria-label="With textarea"
+                      ></textarea>
                     </div>
                   </div>
                 </form>
               </div>
               <div className="card-footer col-10 offset-1 border-0 footer2">
-                <div className="d-flex total mb-5">
-                  <p>
-                    <strong>TOTAL</strong>
-                  </p>
-                  <p>
-                    <strong>$ 1235</strong>
-                  </p>
-                </div>{" "}
-                <button className="btn col-12"> PAY </button>
+                <button
+                  className=" btn btn-refill-coin col-12"
+                  onClick={refillCoin}
+                >
+                  Thanh toán
+                </button>
               </div>
             </div>
           </div>

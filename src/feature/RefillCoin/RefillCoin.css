@@ -144,8 +144,8 @@ select:focus {
     justify-content: space-between
 }
 
-.btn {
-    height: 60px;
+.btn-refill-coin {
+    
     background-color: #00B8D4;
     color: white
 }
@@ -154,8 +154,8 @@ select:focus {
     background: none
 }
 
-.btn.focus,
-.btn:focus {
+.btn-refill-coin.focus,
+.btn-refill-coin:focus {
     outline: 0;
     box-shadow: none !important
 }
