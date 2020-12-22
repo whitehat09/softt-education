@@ -42,18 +42,20 @@ function RefillCoin(props) {
     if (login) {
       const data = {
         userId: user._id,
-        bankAccount: name,
-        bankNameAdmin: number,
+        bankAccount: number,
+        bankNameAdmin: name,
         amount: money,
         content: content,
       };
       console.log(data);
-      RestfulUtils.post("localhost:3030/refill-coins", data)
+      RestfulUtils.post("http://localhost:3030/refill-coins", data)
         .then((res) => {
           if (!res.errors && res.status === 200) {
             toast.success(res.data.message);
+            console.log("Gửi yêu cầu nạp coin thành công !");
           } else {
-            toast.error(res.data.message);
+            toast.error(res.data);
+            console.log("Gửi yêu cầu nạp coin  thất bại !");
           }
         })
         .catch((error) => {
@@ -117,16 +119,19 @@ function RefillCoin(props) {
                   <div className="form-group">
                     <label>
                       <small>
-                        <strong className="text-muted">Người giữ thẻ</strong>
+                        <strong className="text-muted">Tên ngân hàng</strong>
                       </small>
                     </label>
-                    <input
-                      onChange={onChangName}
-                      type="text"
-                      value={name}
-                      className="form-control"
-                      placeholder="Nguyễn Văn A"
-                    />
+                    <div className="d-flex card-number">
+                      <input
+                        onChange={onChangName}
+                        type="text"
+                        value={name}
+                        className="form-control"
+                        placeholder="Tp bank"
+                      />
+                      <i class="fas fa-university text-muted fa-2x"></i>
+                    </div>
                   </div>
                   <div className="form-group">
                     <label>
@@ -159,7 +164,7 @@ function RefillCoin(props) {
                         className="form-control"
                         placeholder="100 000 vnđ "
                       />
-                      <i className="fas fa-credit-card text-muted fa-2x"></i>
+                      <h3>VNĐ</h3>
                     </div>
                   </div>
 
