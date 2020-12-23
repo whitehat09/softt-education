@@ -60,12 +60,10 @@ function CousersDetail(props) {
           lessons: data.lessons,
           totalLesson: data.totalLesson,
         };
-
         setCourse(newCourse);
       }
     });
   };
-
   const registerCourse = () => {
     if (login) {
       const data = {
@@ -124,7 +122,7 @@ function CousersDetail(props) {
                 </div>
               </div>
 
-              {/* 2 */}
+        
 
               {course.lessons.map((lesson) => {
                 return (

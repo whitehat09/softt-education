@@ -1,5 +1,30 @@
 .Lessons {
     background-color: #545454;
     margin-top: 56px;
-    color: #c8c3bd
+    color: #c8c3bd;
+    min-height: "calc(100vh - 226px)" 
+}
+
+.hr-list{
+    
+    border-bottom: 0.1px solid #985050;
+}
+.bg-list{
+    background-color: #545454;
+}
+.title-lesson {
+    
+    padding-top: 10px;
+    border-bottom: 1px solid #985050;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+.title-lesson-active {
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid #ffffff;
+}
+.content-course {
+    padding-top: 10px;
 }

@@ -9,6 +9,7 @@ import Register from "../Register";
 import CoursesDetail from "../CousersDetail";
 import Lessons from "../Lessons";
 import RefillCoin from "../RefillCoin";
+import MeCourses from "../MeCourses";
 
 function DashBoard(props) {
   return (
@@ -26,6 +27,10 @@ function DashBoard(props) {
           <Route exact path="/login">
             <Login />
           </Route>
+          <Route exact path="/me/courses">
+            <MeCourses />
+          </Route>
+
           <Route exact path="/refill-coin">
             <RefillCoin />
           </Route>

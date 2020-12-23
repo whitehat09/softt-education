@@ -8,53 +8,55 @@ import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginState } from "../../recoil/appState";
 function RefillCoin(props) {
+  const [dataGroup, setDataGroup] = useState({
+    userId: "",
+    bankNameAdmin: "",
+    bankAccount: "",
+    amount: "",
+    content: "",
+  });
   const [login, setLogin] = useRecoilState(loginState);
 
   const history = useHistory();
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
-  const [money, setMoney] = useState("");
-  const [content, setContent] = useState("");
-  const [user, setUser] = useState({ _id: "" });
 
-  const onChangName = (e) => {
-    setName(e.target.value);
-  };
-  const onChangNumber = (e) => {
-    setNumber(e.target.value);
-  };
-  const onChangMoney = (e) => {
-    setMoney(e.target.value);
-  };
-  const onChangContent = (e) => {
-    setContent(e.target.value);
+  const onChange = (type, e) => {
+    const newDataGroup = { ...dataGroup };
+
+    newDataGroup[type] = e.target.value;
+
+    setDataGroup(newDataGroup);
   };
   useEffect(() => {
     const user = JSON.parse(
       sessionStorage.getItem("user") || localStorage.getItem("user")
     );
-    console.log("thông tin người dùng :", user);
+    // console.log("thông tin người dùng :", user);
+
     if (user) {
-      setUser(user);
+      const newDataGroup = {
+        ...dataGroup,
+        userId: user._id,
+      };
+      setDataGroup(newDataGroup);
     }
   }, []);
   const refillCoin = () => {
     if (login) {
-      const data = {
-        userId: user._id,
-        bankAccount: number,
-        bankNameAdmin: name,
-        amount: money,
-        content: content,
-      };
-      console.log(data);
-      RestfulUtils.post("http://localhost:3030/refill-coins", data)
+      RestfulUtils.post("http://localhost:3030/refill-coins", dataGroup)
         .then((res) => {
-          if (!res.errors && res.status === 200) {
-            toast.success(res.data.message);
+          if (!res.errors && res.status === 201) {
+            toast.success(res.data.message || "Thành công");
+            const newDataGroup = {
+              ...dataGroup,
+              bankNameAdmin: "",
+              bankAccount: "",
+              amount: "",
+              content: "",
+            };
+            setDataGroup(newDataGroup);
             console.log("Gửi yêu cầu nạp coin thành công !");
           } else {
-            toast.error(res.data);
+            toast.error(res.data.message || "Thất bại");
             console.log("Gửi yêu cầu nạp coin  thất bại !");
           }
         })
@@ -117,20 +119,22 @@ function RefillCoin(props) {
               <div className="card-body col-10 offset-1">
                 <form>
                   <div className="form-group">
-                    <label>
-                      <small>
-                        <strong className="text-muted">Tên ngân hàng</strong>
-                      </small>
-                    </label>
                     <div className="d-flex card-number">
-                      <input
-                        onChange={onChangName}
+                      <select
+                        class="custom-select"
+                        value={dataGroup.bankNameAdmin}
+                        onChange={(e) => onChange("bankNameAdmin", e)}
                         type="text"
-                        value={name}
                         className="form-control"
-                        placeholder="Tp bank"
-                      />
-                      <i class="fas fa-university text-muted fa-2x"></i>
+                      >
+                        <option selected>
+                          Chọn ngân hàng được chuyển tiền
+                        </option>
+                        <option value="vietcombank"> vietcombank</option>
+                        <option value="tpbank">tpbank</option>
+                        <option value="techcombank">techcombank</option>
+                        <option value="agribank">agribank</option>
+                      </select>
                     </div>
                   </div>
                   <div className="form-group">
@@ -141,7 +145,8 @@ function RefillCoin(props) {
                     </label>
                     <div className="d-flex card-number">
                       <input
-                        onChange={onChangNumber}
+                        value={dataGroup.bankAccount}
+                        onChange={(e) => onChange("bankAccount", e)}
                         className="form-control"
                         type="number"
                         placeholder="6666-8888-9999-6789"
@@ -159,7 +164,8 @@ function RefillCoin(props) {
                     </label>
                     <div className="d-flex card-number">
                       <input
-                        onChange={onChangMoney}
+                        value={dataGroup.amount}
+                        onChange={(e) => onChange("amount", e)}
                         type="number"
                         className="form-control"
                         placeholder="100 000 vnđ "
@@ -171,12 +177,11 @@ function RefillCoin(props) {
                   <div className="form-group">
                     <div className="input-group">
                       <div className="input-group-prepend">
-                        <span className="input-group-text">
-                          Nội dung thanh toán
-                        </span>
+                        <span className="input-group-text">Nội dung</span>
                       </div>
                       <textarea
-                        onChange={onChangContent}
+                        value={dataGroup.content}
+                        onChange={(e) => onChange("content", e)}
                         type="text"
                         className="form-control"
                         aria-label="With textarea"
@@ -190,7 +195,7 @@ function RefillCoin(props) {
                   className=" btn btn-refill-coin col-12"
                   onClick={refillCoin}
                 >
-                  Thanh toán
+                  Nhờ duyệt
                 </button>
               </div>
             </div>

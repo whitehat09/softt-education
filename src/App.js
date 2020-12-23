@@ -44,6 +44,9 @@ function App() {
           <Route exact path="/refill-coin">
             <DashBoard />
           </Route>
+          <Route exact path="/me/courses">
+            <DashBoard />
+          </Route>
         </Switch>
 
         <ToastContainer
