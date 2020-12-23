@@ -77,7 +77,7 @@ function Menu(props) {
                       marginRight: "5px",
                     }}
                   />
-                  {user.name}
+                  {`${user.name} | Coin : ${user.coin}`}
                 </span>
                 <div
                   className="dropdown-menu"

@@ -65,7 +65,13 @@ const Lessons = (props) => {
           totalLesson: data.totalLesson,
         };
         setCourse(newCourse);
-        setUrlIsPlay(newCourse.lessons[0].url || "");
+        setUrlIsPlay(() => {
+          if (newCourse.lessons[0]) {
+            return newCourse.lessons[0].url || "";
+          } else {
+            return "";
+          }
+        });
       }
     });
   };

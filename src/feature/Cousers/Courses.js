@@ -6,19 +6,67 @@ import RestfulUtils from "../../utils/RestfulUtils";
 
 function Courses(props) {
   const [data, setData] = useState([]);
+  const [paginate, setPaginate] = useState({
+    limit: 6,
+    skip: 0,
+    total: 0,
+  });
   let history = useHistory();
   useEffect(() => {
-    RestfulUtils.get(`http://localhost:3030/courses?$limit=${10}&$skip=${0}`)
+    fetchData();
+  }, []);
+  const fetchData = () => {
+    RestfulUtils.get(
+      `http://localhost:3030/courses?$limit=${paginate.limit}&$skip=${paginate.skip}`
+    )
       .then((res) => {
-        console.log(res);
         if (!res.error && res.status === 200) {
           setData(res.data.data);
+          const newPaginate = {
+            ...paginate,
+            total: res.data.total,
+            skip: res.data.skip,
+          };
+          setPaginate(newPaginate);
         }
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
+  const onClickPagination = (page) => {
+    const skip = (page - 1) * paginate.limit;
+    RestfulUtils.get(
+      `http://localhost:3030/courses?$limit=${paginate.limit}&$skip=${skip}`
+    )
+      .then((res) => {
+        if (!res.error && res.status === 200) {
+          setData(res.data.data);
+          const newPaginate = {
+            ...paginate,
+            total: res.data.total,
+            skip: res.data.skip,
+          };
+          setPaginate(newPaginate);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const renderPaginate = () => {
+    let xhtml = [];
+
+    for (let i = 1; i <= Math.ceil(paginate.total / paginate.limit); i++) {
+      xhtml.push(
+        <li className="page-item" onClick={() => onClickPagination(i)}>
+          <div className="page-link">{i}</div>
+        </li>
+      );
+    }
+    return xhtml;
+  };
   return (
     <div
       className="courses"
@@ -81,26 +129,9 @@ function Courses(props) {
             );
           })}
         </div>
-
         <div className="paginate pagination justify-content-center">
           <nav aria-label="Page navigation example">
-            <ul className="pagination">
-              <li className="page-item">
-                <Link className="page-link">Previous</Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link">1</Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link">2</Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link">3</Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link">Next</Link>
-              </li>
-            </ul>
+            <ul className="pagination">{renderPaginate()}</ul>
           </nav>
         </div>
       </div>

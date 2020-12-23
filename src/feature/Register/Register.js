@@ -4,6 +4,8 @@ import "./Register.css";
 import { useRecoilState } from "recoil";
 import { loginState } from "../../recoil/appState";
 import RestfulUtils from "../../utils/RestfulUtils";
+import { toast } from "react-toastify";
+
 const Register = (props) => {
   const [login, setLogin] = useRecoilState(loginState);
   const [dataGroup, setDataGroup] = useState({
@@ -18,7 +20,12 @@ const Register = (props) => {
 
     RestfulUtils.post("http://localhost:3030/users", dataGroup)
       .then((res) => {
-        console.log("Thanh cong");
+        if (!res.errors && res.status === 201) {
+          toast.success("Đăgng ki thành công");
+          history.push("/login");
+        } else {
+          toast.error(res.data.message);
+        }
       })
       .catch((error) => {
         console.log(error);
