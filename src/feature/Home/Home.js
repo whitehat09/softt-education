@@ -15,7 +15,6 @@ function Home(props) {
   useEffect(() => {
     RestfulUtils.get(`http://localhost:3030/courses?$limit=${10}&$skip=${0}`)
       .then((res) => {
-        
         if (!res.error && res.status === 200) {
           setData(res.data.data);
         }
@@ -130,14 +129,15 @@ function Home(props) {
                     <p className="card-text">
                       Tổng bài học {item.lessons.length}
                     </p>
+                    <p className="card-text">giá khoá học {item.price} coin</p>
                     <div>
                       <Link className="navbar-brand" to="/">
-                        <span style={{ color: "#fe4e00" }}>Softt</span>{" "}
-                        education
+                        <p>Tổng số học viên</p>
                       </Link>
                       <span className="card-text">
                         <i class="fas fa-users"></i> {item.users.length}
                       </span>
+
                       <Link
                         style={{ float: "right", marginTop: "20px" }}
                         className="btn btn-light my-2 my-sm-0 btn-detail-courses"
@@ -153,37 +153,6 @@ function Home(props) {
               </div>
             );
           })}
-        </div>
-        <div className="paginate pagination justify-content-center">
-          <nav aria-label="Page navigation example">
-            <ul className="pagination">
-              <li className="page-item">
-                <Link className="page-link">
-                  Previous
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" >
-                  1
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" >
-                  2
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" >
-                  3
-                </Link>
-              </li>
-              <li className="page-item">
-                <Link className="page-link" >
-                  Next
-                </Link>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
